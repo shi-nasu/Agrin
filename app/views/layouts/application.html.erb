@@ -6,11 +6,109 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+          <h2>LOGO</h2>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+                <!--顧客ログイン時-->
+                <li>
+                <%= link_to customers_my_page_path(current_customer), class: "nav-link text-light" do %>
+                <p>マイページ</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to items_path, class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to cart_items_path, class: "nav-link text-light" do %>
+                <p>カート</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+                <p>ログアウト</p>
+                <% end %>
+                </li>
+
+
+              <% else if admin_signed_in? %>
+                <!--管理者がログイン時-->
+                <li>
+                <%= link_to admin_items_path, class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_customers_path, class: "nav-link text-light" do %>
+                <p>会員一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_root_path, class: "nav-link text-light" do %>
+                <p>注文履歴一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_genres_path, class: "nav-link text-light" do %>
+                <p>ジャンル一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
+                <p>ログアウト</p>
+                </li>
+                <% end %>
+
+              <% else %>
+                <!--管理者、顧客共にログアウト時-->
+                <li>
+                <%= link_to about_path, class: "nav-link text-light" do %>
+                <p>About</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to admin_items_path class: "nav-link text-light" do %>
+                <p>商品一覧</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_registration_path class: "nav-link text-light" do %>
+                <p>新規登録</p>
+                <% end %>
+                </li>
+
+                <li>
+                <%= link_to new_customer_session_path class: "nav-link text-light" do %>
+                <p>ログイン</p>
+                <% end %>
+                </li>
+              <% end %>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
