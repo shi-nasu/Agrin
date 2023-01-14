@@ -12,9 +12,9 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-lite">
         <div class="container">
-          <h2>LOGO</h2>
+          <h2>Agrin</h2>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
@@ -42,7 +42,6 @@
                 <p>ログアウト</p>
                 <% end %>
                 </li>
-
 
               <% else if admin_signed_in? %>
                 <!--管理者がログイン時-->
@@ -109,6 +108,7 @@
         </div>
       </nav>
     </header>
+
     <%= yield %>
   </body>
 </html>
