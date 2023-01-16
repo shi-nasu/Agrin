@@ -1,0 +1,47 @@
+<div class="col-md-7 offset-md-2">
+  <h4>商品新規登録</h4>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-5 col-lg-4 px-8 px-sm-5 mx-auto">
+        <%= form_with model: @item, url: admin_items_path do |f| %>
+
+          <div class="form-group">
+            <label for="item_image">商品画像</label>
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+
+          <div class="form-group">
+            <label for="item_name">商品名</label>
+            <%= f.text_field :name, autofocus: true, id:"name" %>
+          </div>
+
+          <div class="form-group">
+            <label for="item_introduction">商品説明</label>
+            <%= f.text_area :introduction, autofocus: true, rows: 5, id:"introduction" %>
+          </div>
+
+          <div class="form-group">
+            <label for="item_genre">ジャンル</label>
+            <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+          </div>
+
+          <div class="form-group">
+            <label for="item_price">税抜価格</label>
+            <%= f.number_field :price, autofocus: true, id:"price" %>円
+          </div>
+
+          <div class="form-group">
+            <label for="item_status">販売ステータス</label>
+              <%= f.check_box :status, autofocus: true, id:"status" %>
+              <%= label_tag :test1, "販売中" %>
+              <%= f.check_box :status, autofocus: true, id:"status" %>
+              <%= label_tag :test1, "販売停止中" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "新規登録", class: 'btn btn-success' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

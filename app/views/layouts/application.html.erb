@@ -20,25 +20,25 @@
               <% if customer_signed_in? %>
                 <!--顧客ログイン時-->
                 <li>
-                <%= link_to customers_my_page_path(current_customer), class: "nav-link text-light" do %>
+                <%= link_to customers_my_page_path(current_customer), class: "nav-link text-dark" do %>
                 <p>マイページ</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to items_path, class: "nav-link text-light" do %>
+                <%= link_to items_path, class: "nav-link text-dark" do %>
                 <p>商品一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to cart_items_path, class: "nav-link text-light" do %>
+                <%= link_to cart_items_path, class: "nav-link text-dark" do %>
                 <p>カート</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+                <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-dark" do %>
                 <p>ログアウト</p>
                 <% end %>
                 </li>
@@ -46,31 +46,31 @@
               <% else if admin_signed_in? %>
                 <!--管理者がログイン時-->
                 <li>
-                <%= link_to admin_items_path, class: "nav-link text-light" do %>
+                <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                 <p>商品一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admin_customers_path, class: "nav-link text-light" do %>
+                <%= link_to admin_customers_path, class: "nav-link text-dark" do %>
                 <p>会員一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admin_root_path, class: "nav-link text-light" do %>
+                <%= link_to admin_root_path, class: "nav-link text-dark" do %>
                 <p>注文履歴一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admin_genres_path, class: "nav-link text-light" do %>
+                <%= link_to admin_genres_path, class: "nav-link text-dark" do %>
                 <p>ジャンル一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
+                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
                 <p>ログアウト</p>
                 </li>
                 <% end %>
@@ -78,25 +78,25 @@
               <% else %>
                 <!--管理者、顧客共にログアウト時-->
                 <li>
-                <%= link_to about_path, class: "nav-link text-light" do %>
+                <%= link_to about_path, class: "nav-link text-dark" do %>
                 <p>About</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to admin_items_path class: "nav-link text-light" do %>
+                <%= link_to admin_items_path class: "nav-link text-dark" do %>
                 <p>商品一覧</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to new_customer_registration_path class: "nav-link text-light" do %>
+                <%= link_to new_customer_registration_path class: "nav-link text-dark" do %>
                 <p>新規登録</p>
                 <% end %>
                 </li>
 
                 <li>
-                <%= link_to new_customer_session_path class: "nav-link text-light" do %>
+                <%= link_to new_customer_session_path class: "nav-link text-dark" do %>
                 <p>ログイン</p>
                 <% end %>
                 </li>
