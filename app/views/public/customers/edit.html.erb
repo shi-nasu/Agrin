@@ -1,0 +1,38 @@
+<p id="notice"></p>
+<h3>会員情報編集</h3>
+  <div class="container">
+    <div class="row">
+
+      <%= form_with model: @customer, url:  customers_update_path, method: :patch do |f| %>
+        <div class="field">氏名
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        </div>
+
+        <div class="field">フリガナ
+          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+        </div>
+
+        <div class="field">郵便番号（ハイフンなし）
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+        </div>
+
+        <div class="field">住所
+          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+        </div>
+
+        <div class="field">電話番号
+          <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+        </div>
+
+        <div class="field">メールアドレス
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+        <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger", "data-confirm" => "本当に退会しますか？" %>
+      <% end %>
+
+    </div>
+  </div>
