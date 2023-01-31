@@ -1,0 +1,34 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-5 ml-7">
+      <h5>注文情報入力</h5></br>
+        <P><strong>支払い方法</strong></P>
+            <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
+              <%= f.radio_button :payment_method, :credit_card %>クレジットカード</br>
+              <%= f.radio_button :payment_method, :transfer %>銀行振込</br>
+
+        <P><strong>お届け先</strong></P>
+            <%= f.radio_button :address_select, 0 %>ご自身の住所</br>
+              <%= current_customer.postal_code %>
+              <%= current_customer.address %>
+              <%= current_customer.last_name %><%= current_customer.first_name %></br>
+
+            <%= f.radio_button :address_select, 1 %>登録済み住所から選択
+              <%= f.select :address_id, options_from_collection_for_select(Postal.all, :id, :address_display) %></br>
+
+            <%= f.radio_button :address_select, 2 %>新しいお届け先
+              <div class="field">電話番号（ハイフンなし）
+                <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+              </div>
+              <div class="field">住所
+                <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+              </div>
+              <div class="field">宛名
+                <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+              </div>
+                <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+            <% end %>
+    </div>
+  </div>
+</div>

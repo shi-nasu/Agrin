@@ -1,0 +1,40 @@
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <%= image_tag  @item.get_profile_image(280,150), size: "280x150" %>
+      </div>
+      <div class="col-md-7">
+        <table class="table">
+  		    <tbody>
+  		      <tr>
+              <td>
+                <%= @item.name %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= @item.introduction %>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                ¥<%= @item.price %>（税込）
+              </td>
+            </tr>
+
+              <td>
+                <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.select :amount, [1, 2, 3, 4, 5, 6, 7, 8, 9] %>
+                <%= f.submit "カートに入れる", class: "btn btn-success" %>
+                <% end %>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
