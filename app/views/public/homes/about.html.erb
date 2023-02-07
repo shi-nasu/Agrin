@@ -5,27 +5,8 @@
         <div class="mx-auto" style="width: 800;">
           <h3>Agrin</h3>
           <p>Agrinは、さまざまなサイズやデザインの用品を取り扱っております。</p>
-            <img id="mypic" src="01.png" width="400" height="300">
         </div>
       </div>
     </div>
-      <script>
-        var pics_src = new Array("01.png", "02.png", "03.png");
-        console.log(pics_src);
-        var num = -1;
-
-        slideshow_timer();
-
-        function slideshow_timer() {
-         if (num == 2) {
-          num = 0;
-         }
-         else {
-          num++;
-         }
-         document.getElementById("mypic").src = pics_src[num];
-         setTimeout("slideshow_timer()", 3000);
-        }
-      </script>
   </body>
 </html>
